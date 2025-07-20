@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviso Legal | Privacidad</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Configuración Tailwind personalizada -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#667eea',
+            secondary: '#764ba2',
+            background: '#f5f7fa',
+            dark: '#333',
+          },
+          fontFamily: {
+            sans: ['Arial', 'sans-serif'],
+          },
+          backgroundImage: {
+            'gradient-primary': 'linear-gradient(135deg, #667eea, #764ba2)',
+            'gradient-footer': 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)',
+          },
+          boxShadow: {
+            custom: '0 4px 20px rgba(0, 0, 0, 0.1)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-dark font-sans">
+
+  <div id="header"></div>
+
+  <!-- Cabecera -->
+  <header class="bg-['#f5f7fa'] text ['#764ba2']- px-6 py-8">
+    <h1 class="text-3xl font-bold text-center">Información Legal</h1>
+  </header>
+
+  <!-- Contenido legal -->
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-12">
+
+    <!-- Aviso Legal -->
+    <section>
+      <h2 class="text-2xl font-semibold text-primary mb-4"><i class="fas fa-file-alt mr-2"></i>Aviso Legal</h2>
+      <p class="text-base text-dark leading-relaxed">
+      Bienvenido a <em class="text-primary font-semibold"> Pulse and Pause</em>, el oasis digital donde el coworking se mezcla con el bienestar y el ocio (¡sí, puedes hacer yoga después de una reunión!).
+Este sitio ha sido creado como parte de un proyecto educativo con fines internos. Todo el contenido es original y creado por mente(s) en expansión que están a punto de terminar su certificado. Si ves algo que te inspira, ¡nos encanta! Pero recuerda que este contenido no puede ser copiado, duplicado o usado sin permiso, al menos no sin invitarnos a un café primero ☕.
+
+      </p>
+    </section>
+
+    <!-- Política de Cookies -->
+    <section>
+      <h2 class="text-2xl font-semibold text-primary mb-4"><i class="fas fa-cookie-bite mr-2"></i>Política de Cookies</h2>
+      <p class="text-base text-dark leading-relaxed">
+        Usamos cookies, pero ninguna es de chocolate (lo sentimos).
+Estas pequeñas herramientas digitales nos ayudan a saber si visitaste la página y cómo navegas por ella, pero no te espían ni te juzgan si vienes en pijama. Dado que este sitio se usa de forma interna, los datos recogidos son mínimos y no se comparten con terceros... excepto tal vez con la planta de lavanda que vive en la sala de meditación.
+
+      </p>
+    </section>
+
+    <!-- Política de Privacidad -->
+    <section>
+      <h2 class="text-2xl font-semibold text-primary mb-4"><i class="fas fa-shield-alt mr-2"></i>Política de Privacidad</h2>
+      <p class="text-base text-dark leading-relaxed">
+        En <em class="text-primary font-semibold">Pulse and pause</em> creemos que la privacidad es sagrada, como la última esterilla disponible en una clase de yoga grupal.
+Este sitio recoge únicamente la información necesaria para su funcionamiento básico. No almacenamos secretos, deseos ocultos, ni contraseñas de tu corazón. Si en algún momento deseas que borremos información tuya, lo haremos con la misma delicadeza con la que servimos un té verde.
+
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+<script>
+   fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header").innerHTML = data;
+
+      // Usamos el ID y clases correctas del header.html
+      const toggleBtn = document.getElementById("menu-toggle");
+      const navMenuMobile = document.getElementById("nav-links-mobile");
+
+      if (toggleBtn && navMenuMobile) {
+        toggleBtn.addEventListener("click", () => {
+          navMenuMobile.classList.toggle("hidden");
+        });
+      }
+    });
+
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+</script>
+
+</body>
+</html>

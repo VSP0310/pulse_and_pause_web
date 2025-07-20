@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Construye - Pulse & Pause</title>
+  <link rel="icon" type="image/png" href="img/favicon.png"> <!-- Enlace al favicon de la web -->
+ 
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Enlace a Tailwind CSS -->
+
+  <!--Configuración adicional Tailwind CSS -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#667eea',
+            'secondary': '#764ba2',
+            'background': '#f5f7fa',
+            'dark': '#333',
+          },
+          fontFamily: {
+            'sans': ['Arial', 'sans-serif'],
+          },
+          backgroundImage: {
+            'gradient-primary': 'linear-gradient(135deg, #667eea, #764ba2)',
+            'gradient-footer': 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)'
+          },
+          boxShadow: {
+            'custom': '0 4px 20px rgba(0, 0, 0, 0.1)',
+          }
+        }
+      }
+    }
+  </script>
+  <!--CSS adicional-->
+  <style>
+    /*Colores personalizados*/
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --accent-color: #feca57;
+      --background-color: #f5f7fa;
+      --dark-color: #333;
+      --light-color: #666;
+      --white: #fff;
+      --error-color: #667eea;
+      --success-color: #764ba2;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      --border-radius: 15px;
+    }
+
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeIn {
+      animation: fadeIn 0.6s ease-out both;
+    }
+  
+    .dashboard-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    .heart-hover {
+      transform-origin: center;
+    }
+
+    .dashboard-btn:hover .heart-hover {
+      animation: pulse 0.8s ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+       
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li a {
+        color: #333;
+      }
+
+      .dashboard-btn {
+        background-color: #f5f7fa;
+        color: #333;
+      }
+
+      .dashboard-btn svg {
+        fill: #764ba2;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body class="bg-[#f5f7fa] text-[#333] font-sans flex flex-col min-h-screen">
+
+  <!-- Header dinámico -->
+  <div id="header"></div>
+
+  <main class="flex-1">
+
+
+    <!-- Comunidad -->
+    <section class="py-12 px-6 max-w-4xl mx-auto space-y-6">
+      <h2 class="text-2xl md:text-3xl font-semibold text-center text-[#667eea]">Construyendo una comunidad auténtica
+      </h2>
+      <p>En <em class="text-primary font-semibold">Pulse and Pause</em> no solo creamos espacios de trabajo, sino un
+        ecosistema donde las personas pueden crecer juntas...</p>
+      <p>Fomentamos relaciones auténticas y colaboraciones conscientes que trascienden lo profesional.</p>
+      <p>Nuestra comunidad es un lugar donde cada miembro aporta su singularidad, creando un entorno diverso y
+        enriquecedor.</p>
+      <p>Juntos, construimos carreras que perduran, sin sacrificar el bienestar personal.</p>
+      <p>Nuestros encuentros de networking consciente y sesiones de intercambio de conocimientos crean oportunidades
+        para sinergias inesperadas y proyectos innovadores.</p>
+      <p>Organizamos cenas comunitarias y talleres de desarrollo personal que van más allá de lo profesional.</p>
+      <p><strong>Entendemos que el equilibrio trabajo-vida incluye a la familia:</strong> eventos infantiles, talleres
+        para niños los fines de semana, y espacios seguros donde puedan jugar mientras tú trabajas.</p>
+      <p><strong>Actividades creativas:</strong> arte, exposiciones, sesiones de música, cocina consciente y jardín
+        urbano. Aquí tu creatividad nutre el alma y enriquece tu trabajo.</p>
+    </section>
+
+    <!-- Carrusel de esencia -->
+    <section class="bg-white py-12 px-6">
+      <h2 class="text-center text-2xl md:text-3xl font-semibold mb-8 text-[#667eea]">Nuestra esencia</h2>
+      <div class="overflow-x-auto no-scrollbar flex justify-center">
+        <div class="flex gap-6 px-4 w-max scroll-smooth snap-x snap-mandatory">
+
+          <!-- Slide 1 -->
+          <div
+            class="snap-start w-[300px] flex-shrink-0 bg-[#f5f7fa] rounded-[15px] shadow p-6 animate-fadeIn flex flex-col items-center justify-between">
+            <svg class="w-12 h-12 mb-4 text-[#764ba2]" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4z M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+            <p class="text-center text-sm text-[#333] mb-4">Creamos un ecosistema donde las personas pueden crecer
+              juntas.</p>
+            <button onclick="expandText(this)"
+              class="text-[#667eea] text-sm underline hover:text-[#764ba2] transition">Ver más</button>
+            <div class="hidden mt-4 text-sm text-[#666] text-left">
+              <p>Fomentamos relaciones auténticas y colaboraciones conscientes que trascienden lo profesional.</p>
+              <p>Nuestra comunidad es un lugar donde cada miembro aporta su singularidad, creando un entorno diverso y
+                enriquecedor.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div
+            class="snap-start w-[300px] flex-shrink-0 bg-[#f5f7fa] rounded-[15px] shadow p-6 animate-fadeIn flex flex-col items-center justify-between">
+            <svg class="w-12 h-12 mb-4 text-[#feca57]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
+            <p class="text-center text-sm text-[#333] mb-4">Incluimos a la familia en nuestra visión de bienestar y
+              trabajo.</p>
+            <button onclick="expandText(this)"
+              class="text-[#667eea] text-sm underline hover:text-[#feca57] transition">Ver más</button>
+            <div class="hidden mt-4 text-sm text-[#666] text-left">
+              <p>Organizamos eventos infantiles, talleres para niños los fines de semana y espacios seguros donde puedan
+                jugar y aprender, mientras tú trabajas.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div
+            class="snap-start w-[300px] flex-shrink-0 bg-[#f5f7fa] rounded-[15px] shadow p-6 animate-fadeIn flex flex-col items-center justify-between">
+            <svg class="w-12 h-12 mb-4 text-[#667eea]" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 4.44L8.34 6.34 12 8.23l3.66-1.89L12 4.44z M12 12.23l3.66-1.89 1.12.58-4.78 2.47-4.78-2.47 1.12-.58 3.66 1.89z" />
+            </svg>
+            <p class="text-center text-sm text-[#333] mb-4">La creatividad fluye libre en espacios diversos y vivos.</p>
+            <button onclick="expandText(this)"
+              class="text-[#667eea] text-sm underline hover:text-[#764ba2] transition">Ver más</button>
+            <div class="hidden mt-4 text-sm text-[#666] text-left">
+              <p>Desde talleres de arte y exposiciones hasta sesiones de música, cocina consciente y jardín urbano. Aquí
+                tu creatividad nutre el alma y enriquece tu trabajo.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="py-12 px-6 text-center bg-white">
+      <h2 class="text-2xl font-bold mb-4 text-[#764ba2]">¿Listo para conocer a nuestro equipo?</h2>
+      <p class="mb-6 text-[#666]">Descubre cómo <em>Pulse and Pause</em> puede transformar tu idea de trabajar y vivir
+      </p>
+      <a href="equipo.html"
+        class="inline-block bg-gradient-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 no-underline">
+        Conoce a nuestro equipo
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer dinámico -->
+  <div id="footer" class="mt-auto"></div>
+
+  <!-- Script personalizado para “Ver más” del carrusel -->
+  <script>
+    function expandText(btn) {
+      const extra = btn.nextElementSibling;
+      extra.classList.toggle('hidden');
+      btn.textContent = extra.classList.contains('hidden') ? 'Ver más' : 'Ver menos';
+    }
+  </script>
+  <!-- Carga dinámica del header y footer + menú hamburguesa -->
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+
+        // Usamos el ID y clases correctas del header.html
+        const toggleBtn = document.getElementById("menu-toggle");
+        const navMenuMobile = document.getElementById("nav-links-mobile");
+
+        if (toggleBtn && navMenuMobile) {
+          toggleBtn.addEventListener("click", () => {
+            navMenuMobile.classList.toggle("hidden");
+          });
+        }
+      });
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipo</title>
+  <link rel="icon" type="image/png" href="img/favicon.png"> <!-- Enlace al favicon de la web -->
+  <!--CSS personalizado-->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      padding: 15px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .btn {
+      margin-top: 20px;
+      display: inline-block;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+  <h1>Nuestro equipo</h1>
+  <div id="user-container" class="card-container"></div>
+  <div style="text-align: center">
+    <a href="index.html" class="btn">Inicio</a>
+  </div>
+  <div id="footer"></div>
+
+  <script>
+    // Seleccionamos el contenedor donde vamos a meter las tarjetas
+    const container = document.getElementById("user-container");
+
+    // URL de la API pública con los datos de usuarios
+    const urlUsers = "https://jsonplaceholder.typicode.com/users";
+
+    // Hacemos la petición a la API
+    fetch(urlUsers)
+      .then((response) => response.json()) // Convertimos la respuesta a JSON
+      .then((users) => {
+        console.log("Miembros del equipo recibidos:", users); // 👈 Aquí ves todos los usuarios en la consola
+
+        // Recorremos los usuarios recibidos
+        users.forEach((user) => {
+          // Creamos una tarjeta (div) y le aplicamos la clase "card"
+          const card = document.createElement("div");
+          card.classList.add("card");
+
+          // Insertamos contenido HTML con los datos del usuario
+          card.innerHTML = `
+            <a href="detalle_equipo.html?id=${user.id}">
+              <h2>${user.name}</h2>
+              <p><strong>Alias:</strong> ${user.username}</p>
+              <p><strong>Email:</strong> ${user.email}</p>
+              <p><strong>Ciudad:</strong> ${user.address.city}</p>
+              <p><strong>Empresa:</strong> ${user.company.name}</p>
+            </a>
+          `;
+
+          // Añadimos la tarjeta al contenedor principal
+          container.appendChild(card);
+        });
+      })
+      .catch((error) => {
+        // Si algo falla, mostramos un mensaje de error
+        console.error("Error al cargar los miembros del equipo:", error);
+        container.innerHTML = "<p>Error al cargar los datos.</p>";
+      });
+  </script>
+</body>
+
+</html>

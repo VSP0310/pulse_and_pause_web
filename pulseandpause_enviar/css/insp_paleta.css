@@ -1,0 +1,58 @@
+
+/*Colores elegidos para la web*/
+
+
+
+
+
+
+
+
+/* Color Theme Swatches in Hex */
+.Verdes-1-hex { color: #587A69; }
+.Verdes-2-hex { color: #5A7152; }
+.Verdes-3-hex { color: #80A472; }
+.Verdes-4-hex { color: #7AAE7D; }
+.Verdes-5-hex { color: #BABF95; }
+
+/* Color Theme Swatches in Hex */
+.palette-complementare-verde-salvia-1-hex { color: #3C4F35; }
+.palette-complementare-verde-salvia-2-hex { color: #D2E8CA; }
+.palette-complementare-verde-salvia-3-hex { color: #829C78; }
+.palette-complementare-verde-salvia-4-hex { color: #4F2D4C; }
+.palette-complementare-verde-salvia-5-hex { color: #9C7898; }
+
+/* Color Theme Swatches in RGBA */
+.palette-complementare-verde-salvia-1-rgba { color: rgba(59, 79, 52, 1); }
+.palette-complementare-verde-salvia-2-rgba { color: rgba(209, 232, 202, 1); }
+.palette-complementare-verde-salvia-3-rgba { color: rgba(130, 156, 119, 1); }
+.palette-complementare-verde-salvia-4-rgba { color: rgba(79, 45, 75, 1); }
+.palette-complementare-verde-salvia-5-rgba { color: rgba(156, 119, 151, 1); }
+
+/* Color Theme Swatches in HSLA */
+.palette-complementare-verde-salvia-1-hsla { color: hsla(103, 19, 25, 1); }
+.palette-complementare-verde-salvia-2-hsla { color: hsla(104, 39, 85, 1); }
+.palette-complementare-verde-salvia-3-hsla { color: hsla(103, 15, 54, 1); }
+.palette-complementare-verde-salvia-4-hsla { color: hsla(305, 27, 24, 1); }
+.palette-complementare-verde-salvia-5-hsla { color: hsla(306, 15, 54, 1); }
+
+/* Color Theme Swatches in Hex */
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-1-hex { color: #3E5902; }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-2-hex { color: #F2DCC2; }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-3-hex { color: #F2B885; }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-4-hex { color: #A66641; }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-5-hex { color: #592418; }
+
+/* Color Theme Swatches in RGBA */
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-1-rgba { color: rgba(61, 89, 1, 1); }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-2-rgba { color: rgba(242, 220, 193, 1); }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-3-rgba { color: rgba(242, 184, 133, 1); }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-4-rgba { color: rgba(165, 101, 64, 1); }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-5-rgba { color: rgba(89, 36, 24, 1); }
+
+/* Color Theme Swatches in HSLA */
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-1-hsla { color: hsla(78, 96, 17, 1); }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-2-hsla { color: hsla(33, 65, 85, 1); }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-3-hsla { color: hsla(28, 81, 73, 1); }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-4-hsla { color: hsla(22, 43, 45, 1); }
+.monsterra-plant,-photorealistic-photo,-bright-light,-textured-terracota-pot,-natural,-white-background-5-hsla { color: hsla(11, 57, 22, 1); }

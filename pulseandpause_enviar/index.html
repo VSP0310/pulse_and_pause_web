@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Inicio del documento HTML -->
+
+
+<head>
+  <meta charset="UTF-8" /> <!-- Establece la codificación de caracteres a UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Configura la vista para dispositivos móviles -->
+  <title>Header Pulse and Pause</title> <!-- Título de la página -->
+  <link rel="icon" type="image/png" href="./img/favicon.png"> <!-- Enlace al favicon de la web -->
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Enlace a Tailwind CSS -->
+  <!-- Enlace Font Awesome que nos permite iconos elegidos-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Enlace a nuestro CSS personalizado -->
+  <link rel="stylesheet" href="./css/style_index.css" />
+  <link rel="icon" type="image/png" href="./iconos/favicon.png"> <!-- Enlace al favicon de la web -->
+
+  <!--Estilos CSS personalizados -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 48px;
+      max-width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .dashboard-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    .dashboard-btn:hover {
+      background-color: #feca57;
+    }
+
+    .heart-hover {
+      transform-origin: center;
+    }
+
+    .dashboard-btn:hover .heart-hover {
+      animation: pulse 0.8s ease-in-out;
+    }
+
+    .bg-gradient-footer {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    }
+
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li a {
+        color: #333;
+      }
+
+      .dashboard-btn {
+        background-color: #f5f7fa;
+        color: #333;
+      }
+
+      .dashboard-btn:hover {
+        background-color: #feca57;
+      }
+
+      .dashboard-btn svg {
+        fill: #764ba2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="./img/logo-removebg-preview.png" alt="logo">
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav>
+        <ul id="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="concepto_coworking.html">Coworking</a></li>
+          <li><a href="espacios.html">Espacios</a></li>
+          <li><a href="registro.html">Conecta</a></li>
+          <li><a href="construye.html">Construye</a></li>
+          <li><a href="localizacion.html">Visítanos</a></li>
+          <li>
+            <a href="dashboard.html" class="dashboard-btn">
+
+              <svg class="heart-hover" width="20" height="20" viewBox="0 0 24 24" fill="white"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.1 8.6l-.1.1-.1-.1C10.3 6.8 7.4 6.8 5.6 8.6c-1.8 1.8-1.8 4.7 0 6.5L12 21l6.4-5.9c1.8-1.8 1.8-4.7 0-6.5-1.8-1.8-4.7-1.8-6.3 0z" />
+              </svg>
+              <span>Panel Usuarios</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- contenido central -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eslogan">Bienvenido al espacio donde todo es posible</p>
+        <h1>Pulse & Pause</h1>
+        <p class="eslogan">Respira, sonríe, conecta y construye</p>
+        <a href="espacios.html" class="boton-hero">Descubre tu espacio</a>
+      </div>
+    </section>
+
+    <section class="intro">
+      <h2>Un lugar donde trabajar y vivir en equilibrio</h2>
+      <p>
+        Disfruta de un coworking moderno con zonas de relax, micro gym,
+        eventos inspiradores y talleres conscientes para recargar cuerpo y
+        mente.
+      </p>
+    </section>
+  </main>
+  <footer class="bg-gradient-footer text-white py-8 px-4 md:px-8 text-center select-none">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Enlaces legales y contacto -->
+      <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-sm mb-4">
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="font-semibold text-blue-400">LEGAL:</span>
+          <a href="aviso_legal.html" class="text-gray-300 hover:text-blue-400 transition-colors">Aviso legal</a>
+          <span class="text-gray-400">·</span>
+          <a href="" class="text-gray-300 hover:text-blue-400 transition-colors">Privacidad</a>
+          <span class="text-gray-400">·</span>
+          <a href="" class="text-gray-300 hover:text-blue-400 transition-colors">Cookies</a>
+          <span class="text-gray-400">·</span>
+          <a href="" class="text-gray-300 hover:text-blue-400 transition-colors">Términos</a>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="font-semibold text-blue-400">VISÍTANOS:</span>
+          <a href="oklocalizacion.html" class="text-gray-300 hover:text-blue-400 transition-colors">C/Alegría Nº 55</a>
+          <span class="text-gray-400">·</span>
+          <a href="oklocalizacion.html"
+            class="text-gray-300 hover:text-blue-400 transition-colors">pulseandpause@gmail.com</a>
+          <span class="text-gray-400">·</span>
+          <a href="https://wa.me/34607663214" class="text-gray-300 hover:text-blue-400 transition-colors">123 456
+            789</a>
+        </div>
+      </div>
+
+      <!-- Iconos sociales -->
+      <div class="flex justify-center gap-6 mb-4">
+        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"
+          class="text-white hover:text-blue-400 transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"
+          class="text-white hover:text-blue-400 transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+        </a>
+
+        <a href="https://www.x.com/" target="_blank" aria-label="X" rel="noopener noreferrer"
+          class="text-white hover:text-blue-400 transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-xs text-gray-400">
+        &copy; 2025 Pulse and Pause - Marina Meca -
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Script -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+
+</body>
+
+</html>

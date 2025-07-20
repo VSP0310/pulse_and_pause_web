@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gracias – Pulse & Pause</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Enlace a Tailwind CSS -->
+  <!--Configuración adicional Tailwind CSS -->
+  <script> 
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#667eea',
+            secondary: '#764ba2',
+            accent: '#feca57',
+            background: '#f5f7fa',
+            dark: '#333',
+          },
+          fontFamily: {
+            sans: ['Arial', 'sans-serif'],
+          },
+          backgroundImage: {
+            'gradient-primary': 'linear-gradient(135deg, #667eea, #764ba2)',
+            'gradient-footer': 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)',
+          },
+          boxShadow: {
+            custom: '0 4px 20px rgba(0, 0, 0, 0.1)',
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="icon" type="image/png" href="./img/lavanda_corazon.png" />
+<!--CSS personalizado para el tamaño elegido para el icono corazón con lavanda-->
+  <style> 
+  
+    .icon-container img {
+      max-width: 80px;
+      margin: 2rem auto 0;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Header dinámico -->
+  <div id="header"></div>
+
+  <main class="flex-1 flex flex-col justify-center items-center text-center px-6 py-16 fadeIn">
+    <h1 class="text-3xl font-bold text-[#764ba2] mb-4">¡Gracias por tu mensaje!</h1>
+    <p class="text-[#667eea] text-lg mb-6 max-w-xl">
+      Tu interés nos alegra. Este espacio lo creamos con cariño, y saber que has conectado con nosotros… nos inspira aún más.
+    </p>
+    <p class="text-[#666] mb-6 max-w-lg">
+      <em>Pulse & Pause</em> es una invitación a reconectar con lo importante. Porque crear desde la calma también es crear con propósito.
+    </p>
+    <p class="italic text-[#333] font-medium mb-8">“Gracias por llegar hasta aquí. El pulso lo pones tú. La pausa, la mereces tú.”</p>
+    <a href="index.html"
+      class="inline-block bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-300">
+      Volver al inicio
+    </a>
+  </main>
+
+  <!-- Epílogo final -->
+  <section class="bg-[#f5f7fa] py-12 px-6 text-center border-t border-[#eee]">
+    <h2 class="text-2xl md:text-3xl font-semibold text-[#764ba2] mb-4">Epílogo</h2>
+    <p class="text-[#667eea] text-lg max-w-2xl mx-auto mb-6">Este proyecto empezó con dudas… y terminó con convicción.</p>
+    <p class="text-[#666] max-w-xl mx-auto mb-6">
+      Cada línea de código, cada estilo elegido, cada color aplicado lleva consigo una parte de mí. 
+      He creado más que una web. He construido un refugio digital para quienes buscan equilibrio entre hacer y ser.
+    </p>
+    <p class="italic text-[#333] font-medium mb-8">“Gracias por crear este recorrido conmigo. Nos vemos en el próximo latido.”</p>
+
+    <!-- Icono visual -->
+    <div class="icon-container">
+      <img src="img/lavanda_corazon.png" alt="Corazón con lavanda">
+    </div>
+  </section>
+
+  <!-- Footer dinámico -->
+  <div id="footer"></div>
+
+  <!-- Carga dinámica de header y footer -->
+  <script>
+   fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header").innerHTML = data;
+
+      // Usamos el ID y clases correctas del header.html
+      const toggleBtn = document.getElementById("menu-toggle");
+      const navMenuMobile = document.getElementById("nav-links-mobile");
+
+      if (toggleBtn && navMenuMobile) {
+        toggleBtn.addEventListener("click", () => {
+          navMenuMobile.classList.toggle("hidden");
+        });
+      }
+    });
+
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del equipo</title>
+    <link rel="icon" type="image/png" href="img/favicon.png"> <!-- Enlace al favicon de la web -->
+    
+    <!--CSS personalizado-->
+    <style>
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e8f0fe;
+        padding: 30px;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .card {
+        background-color: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .btn {
+        margin-top: 20px;
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+      }
+
+      iframe {
+        margin-top: 20px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    
+    <!-- Contenedor donde se mostrarán los detalles del usuario -->
+    <div class="card" id="user-details">
+      <p>Cargando datos del equipo...</p>
+    </div>
+
+    <!-- Botón para volver a la lista -->
+    <div style="text-align: center">
+      <a href="equipo.html" class="btn">← Volver a nuestro equipo</a>
+    </div>
+   
+
+<script>
+  // Obtenemos el parámetro 'id' de la URL (por ejemplo: ?id=3)
+  const params = new URLSearchParams(window.location.search);
+  const userId = params.get("id");
+
+  const container = document.getElementById("user-details");
+
+  if (!userId) {
+    container.innerHTML = "<p>No se ha proporcionado un ID válido del miembro del equipo.</p>";
+  } else {
+    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Miembro del equipo no encontrado");
+        }
+        return response.json();
+      })
+      .then((user) => {
+        console.log("Miembro del equipo recibido:", user);
+        console.table(user);
+
+        // Coordenadas fijas de Zaragoza
+        const lat = 41.636254;
+        const lng = -0.875892;
+
+        container.innerHTML = `
+          <h1>${user.name}</h1>
+          <p><strong>Alias:</strong> ${user.username}</p>
+          <p><strong>Email:</strong> ${user.email}</p>
+          <p><strong>Teléfono:</strong> ${user.phone}</p>
+          <p><strong>Dirección:</strong> ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>
+          <p><strong>Coordenadas:</strong> ${lat}, ${lng}</p>
+          <p><strong>Empresa:</strong> ${user.company.name}</p>
+          <p><strong>Frase:</strong> ${user.company.catchPhrase}</p>
+          <p><strong>Web:</strong> <a href="http://${user.website}" target="_blank">${user.website}</a></p>
+
+          <h3>Ubicación en el mapa:</h3>
+          <iframe
+            width="100%"
+            height="300"
+            frameborder="0"
+            style="border:0"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed"
+            allowfullscreen>
+          </iframe>
+        `;
+      })
+      .catch((error) => {
+        container.innerHTML = "<p>Error al cargar los datos del miembro del equipo.</p>";
+      });
+  }
+</script>
+  </body>
+</html>

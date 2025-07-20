@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Enlace Font Awesome que nos permite iconos elegidos-->
+  <link rel="icon" type="image/png" href="img/favicon.png"> <!-- Enlace al favicon de la web -->
+  <title>Dashboard de Equipo</title>
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Enlace a Tailwind CSS -->
+  <!--Configuración adicional Tailwind CSS -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#667eea',
+            secondary: '#764ba2',
+            accent: '#feca57',
+            background: '#f5f7fa',
+            dark: '#333333',
+            light: '#666666',
+            white: '#ffffff',
+           
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+ 
+    header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 16px 16px;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    
+
+    .logo img {
+      height: 48px;
+      max-width: 100%;
+    }
+
+   
+    .heart-hover {
+      transform-origin: center;
+    }
+
+    .dashboard-btn:hover .heart-hover {
+      animation: pulse 0.8s ease-in-out;
+    }
+
+    .bg-gradient-footer {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    }
+
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li a {
+        color: #333;
+      }
+
+      .dashboard-btn {
+        background-color: #f5f7fa;
+        color: #333;
+      }
+
+     
+
+      .dashboard-btn svg {
+        fill: #764ba2;
+      }
+    }
+  </style>
+ 
+</head>
+
+<body class="bg-[#f5f7fa] text-[#333] font-sans flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header>
+    <nav
+      class="flex justify-between items-center px-4 md:px-8 py-4 bg-gradient-primary text-white shadow-custom sticky top-0 z-50">
+      <div class="logo">
+        <img src="./img/logo-removebg-preview.png" alt="logo" class="h-12 max-w-full">
+      </div>
+
+      <button class="menu-toggle md:hidden flex flex-col gap-1 bg-transparent border-none cursor-pointer"
+        id="menu-toggle" aria-label="Menú">
+        <span class="w-6 h-0.5 bg-white rounded-sm"></span>
+        <span class="w-6 h-0.5 bg-white rounded-sm"></span>
+        <span class="w-6 h-0.5 bg-white rounded-sm"></span>
+      </button>
+
+      <ul
+        class="nav-links list-none
+                 hidden absolute top-full right-0 bg-white flex-col items-start w-full shadow-lg
+                 md:flex md:relative md:top-auto md:right-auto md:bg-transparent md:flex-row md:items-center md:w-auto md:shadow-none md:gap-6"
+        id="nav-links">
+        <li class="w-full md:w-auto">
+          <a href="index.html"
+            class="block w-full px-4 py-2 md:px-4 md:py-2 text-dark md:text-white no-underline rounded-full hover:bg-white hover:bg-opacity-20 transition-colors duration-300">Inicio</a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="concepto_coworking.html"
+            class="block w-full px-4 py-2 md:px-4 md:py-2 text-dark md:text-white no-underline rounded-full hover:bg-white hover:bg-opacity-20 transition-colors duration-300">Coworking</a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="espacios.html"
+            class="block w-full px-4 py-2 md:px-4 md:py-2 text-dark md:text-white no-underline rounded-full hover:bg-white hover:bg-opacity-20 transition-colors duration-300">Espacios</a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="registro.html"
+            class="block w-full px-4 py-2 md:px-4 md:py-2 text-dark md:text-white no-underline rounded-full hover:bg-white hover:bg-opacity-20 transition-colors duration-300">Conecta</a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="construye.html"
+            class="block w-full px-4 py-2 md:px-4 md:py-2 text-dark md:text-white no-underline rounded-full hover:bg-white hover:bg-opacity-20 transition-colors duration-300">Construye</a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="localizacion.html"
+            class="block w-full px-4 py-2 md:px-4 md:py-2 text-dark md:text-white no-underline rounded-full hover:bg-white hover:bg-opacity-20 transition-colors duration-300">Visítanos</a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="dashboard.html"
+            class="block w-full px-4 py-2 md:px-4 md:py-2 text-dark md:text-white no-underline rounded-full hover:bg-white hover:bg-opacity-20 transition-colors duration-300 flex items-center gap-2">
+            <svg class="heart-hover" width="20" height="20" viewBox="0 0 24 24" fill="white"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12.1 8.6l-.1.1-.1-.1C10.3 6.8 7.4 6.8 5.6 8.6c-1.8 1.8-1.8 4.7 0 6.5L12 21l6.4-5.9c1.8-1.8 1.8-4.7 0-6.5-1.8-1.8-4.7-1.8-6.3 0z" />
+            </svg> Panel de control
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="px-5 py-8">
+  <h1 class="text-center text-3xl font-bold text-primary mb-10">Dashboard de Miembros</h1>
+
+  <!-- Estadísticas -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 w-[80%] mx-auto">
+    <div class="bg-white rounded shadow p-6 text-center">
+      <div class="text-3xl font-bold text-secondary">142</div>
+      <div class="mt-2 text-light">Miembros Activos</div>
+    </div>
+    <div class="bg-white rounded shadow p-6 text-center">
+      <div class="text-3xl font-bold text-secondary">38</div>
+      <div class="mt-2 text-light">Visitas Hoy</div>
+    </div>
+    <div class="bg-white rounded shadow p-6 text-center">
+      <div class="text-3xl font-bold text-secondary">67%</div>
+      <div class="mt-2 text-light">Ocupación Gimnasio</div>
+    </div>
+    <div class="bg-white rounded shadow p-6 text-center">
+      <div class="text-3xl font-bold text-secondary">26°C</div>
+      <div class="mt-2 text-light">Temperatura Piscina</div>
+    </div>
+  </div>
+
+  <!-- Frase Inspiradora -->
+  <div class="mb-10">
+    <h3 class="text-xl text-accent font-semibold mb-4">🌟 Frase Inspiradora</h3>
+    <div id="frase-box" class="bg-white p-6 rounded shadow text-center transition-opacity duration-700 opacity-0">
+      <blockquote id="frase-text" class="text-lg italic text-primary">Cargando...</blockquote>
+      <cite id="frase-autor" class="block mt-4 text-light"></cite>
+    </div>
+  </div>
+
+
+  <div class="mb-10">
+    <h3 class="text-xl text-accent font-semibold mb-4">📋 Actividades de Hoy</h3>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white shadow-md rounded overflow-hidden">
+        <thead class="bg-primary text-white">
+          <tr>
+            <th class="text-left px-4 py-3">Hora</th>
+            <th class="text-left px-4 py-3">Actividad</th>
+            <th class="text-left px-4 py-3">Instructor</th>
+            <th class="text-left px-4 py-3">Plazas</th>
+          </tr>
+        </thead>
+        <tbody class="text-dark">
+          <tr class="hover:bg-background">
+            <td class="px-4 py-3">09:00</td>
+            <td class="px-4 py-3">Yoga Matutino</td>
+            <td class="px-4 py-3">Ana Carmen Mesa</td>
+            <td class="px-4 py-3">3/12</td>
+          </tr>
+          <tr class="hover:bg-background">
+            <td class="px-4 py-3">12:00</td>
+            <td class="px-4 py-3">Aqua Aeróbicos</td>
+            <td class="px-4 py-3">Silvia Mené</td>
+            <td class="px-4 py-3">7/15</td>
+          </tr>
+          <tr class="hover:bg-background">
+            <td class="px-4 py-3">18:00</td>
+            <td class="px-4 py-3">HIIT Training</td>
+            <td class="px-4 py-3">Bea Morcillo</td>
+            <td class="px-4 py-3">2/10</td>
+          </tr>
+          <tr class="hover:bg-background">
+            <td class="px-4 py-3">19:30</td>
+            <td class="px-4 py-3">Meditación & Relajación</td>
+            <td class="px-4 py-3">Ana Belén Mena</td>
+            <td class="px-4 py-3">8/20</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+  <footer class="bg-gradient-footer text-white py-8 px-4 md:px-8 text-center select-none">
+    <div class="max-w-6xl mx-auto">
+    
+      <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-sm mb-4">
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="font-semibold text-blue-400">LEGAL:</span>
+          <a href="aviso_legal.html" class="text-gray-300 hover:text-blue-400 transition-colors">Aviso legal</a>
+          <span class="text-gray-400">·</span>
+          <a href="" class="text-gray-300 hover:text-blue-400 transition-colors">Privacidad</a>
+          <span class="text-gray-400">·</span>
+          <a href="" class="text-gray-300 hover:text-blue-400 transition-colors">Cookies</a>
+          <span class="text-gray-400">·</span>
+          <a href="" class="text-gray-300 hover:text-blue-400 transition-colors">Términos</a>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="font-semibold text-blue-400">VISÍTANOS:</span>
+          <a href="localizacion.html" class="text-gray-300 hover:text-blue-400 transition-colors">C/Alegría Nº 55</a>
+          <span class="text-gray-400">·</span>
+          <a href="localizacion.html"
+            class="text-gray-300 hover:text-blue-400 transition-colors">pulseandpause@gmail.com</a>
+          <span class="text-gray-400">·</span>
+          <a href="https://wa.me/34607663214" class="text-gray-300 hover:text-blue-400 transition-colors">123 456
+            789</a>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-6 mb-4">
+        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"
+          class="text-white hover:text-blue-400 transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"
+          class="text-white hover:text-blue-400 transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+        </a>
+
+        <a href="https://www.x.com/" target="_blank" aria-label="X" rel="noopener noreferrer"
+          class="text-white hover:text-blue-400 transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </a>
+      </div>
+
+     
+      <div class="text-xs text-gray-400">
+        &copy; 2025 Pulse and Pause - Marina Meca -
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Script de frases rotativas -->
+  <script>
+    const frases = [{
+        quote: "No podemos planificar la vida.Todo lo que podemos hacer es estar disponible para ella.",
+        author: "Lauryn Hill"
+      },
+      {
+        quote: "Si enciendes una luz para alguien, también iluminará tu camino.",
+        author: "Buda"
+      },
+      {
+        quote: "¡Cree!¡Espera!siempre habrá una salida, siempre brillará una estrella.",
+        author: "Chaplin"
+      },
+      {
+        quote: "Con el tiempo te darás cuenta de que no solo estás cuidando del huerto, sino que el huerto también está cuidando de ti.",
+        author: "Anonimo"
+      },
+      {
+        quote: "Convierte tus heridas en sabiduría.",
+        author: "Oprah Winfrey"
+      }
+    ];
+
+    const fraseBox = document.getElementById('frase-box');
+    const fraseText = document.getElementById('frase-text');
+    const fraseAutor = document.getElementById('frase-autor');
+
+    function mostrarFrase() {
+      const frase = frases[Math.floor(Math.random() * frases.length)];
+      fraseBox.style.opacity = 0;
+      setTimeout(() => {
+        fraseText.textContent = frase.quote;
+        fraseAutor.textContent = `— ${frase.author}`;
+        fraseBox.style.opacity = 1;
+      }, 300);
+    }
+
+    mostrarFrase(); // mostrar frase inicial
+    setInterval(mostrarFrase, 9000); // cambiar cada 15 segundos
+  </script>
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('hidden');
+    navLinks.classList.toggle('active');
+  });
+</script>
+</body>
+
+</html>
